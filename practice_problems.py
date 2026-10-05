@@ -14,8 +14,18 @@ Output: False
 
 def has_duplicates(product_ids):
     # Your implementation here
-    pass
+    seen = set()
 
+    for product_id in product_ids:
+        if product_id in seen:
+            return True
+        seen.add(product_id)
+
+    return False
+
+# I chose a set because it keeps track of the product IDs that have already been seen.
+# It checks and adds IDs in O(1) time on average, and going through the full list is O(n).
+# This makes it easy to find a duplicate without checking every ID against each other.
 
 """
 Problem 2: Order Manager
@@ -32,15 +42,19 @@ task_queue.remove_oldest_task() → "Email follow-up"
 
 class TaskQueue:
     def __init__(self):
-        # Your initialization here
-        pass
+        self.tasks = []
 
     def add_task(self, task):
-        pass
+        self.tasks.append(task)
 
     def remove_oldest_task(self):
-        pass
+        if len(self.tasks) == 0:
+            return None
+        return self.tasks.pop(0)
 
+# I chose a queue because the tasks need to stay in the order they were added.
+# Adding a task to the end is O(1), while removing the first task from this list is O(n).
+# This works because the oldest task is always the first one removed.
 
 """
 Problem 3: Unique Value Counter
@@ -57,10 +71,32 @@ tracker.get_unique_count() → 2
 
 class UniqueTracker:
     def __init__(self):
-        pass
+        self.values = set()
 
     def add(self, value):
-        pass
+        self.values.add(value)
 
     def get_unique_count(self):
-        pass
+        return len(self.values)
+
+# I chose a set because it only keeps unique values and does not add duplicates.
+# Adding a value is O(1) on average, and getting the number of unique values is O(1).
+# This makes it easy to keep track of how many different values have been added.
+
+print(has_duplicates([10, 20, 30, 20, 40]))
+print(has_duplicates([1, 2, 3, 4, 5]))
+
+task_queue = TaskQueue()
+task_queue.add_task("Email follow-up")
+task_queue.add_task("Code review")
+
+print(task_queue.remove_oldest_task())
+print(task_queue.remove_oldest_task())
+print(task_queue.remove_oldest_task())
+
+tracker = UniqueTracker()
+tracker.add(10)
+tracker.add(20)
+tracker.add(10)
+
+print(tracker.get_unique_count())

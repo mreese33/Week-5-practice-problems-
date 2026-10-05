@@ -1,0 +1,22 @@
+#For this challenge I picked #7, the first repeated value problem. To finish this 
+challenge I needed my code to go through a collection of values and return the first 
+value that showed more than once. I used a set for the data structure because I think 
+it matched the goal of the challenge by keeping track of values that have already been 
+seen. As the program goes through the list, it checks to see if each value is already in 
+the set. If it is, it gets returned, and if it is not, it gets added to the set. This 
+gave me a simple and efficient way to keep the values organized and checked.
+
+The timed challenge was a bit tricky. I tried to pick a problem that was similar to 
+things we had done in class. I am a bit slower when it comes to coding, and during other 
+assignments I usually have to refer back to resources. Doing this with no resources 
+available and needing to finish in a timely manner added some pressure. I had to think 
+back to how I should set up the set and where the correct commands and indents should go. 
+I wanted to make sure my solution worked first and had the correct structure. For testing,
+I made three lines and tested them all at once. This helped me see right away if 
+everything was working correctly.
+
+
+One trade-off I made was using a set even though it takes extra memory to keep track of
+values already seen. I thought this was the better option because it kept my code simple
+and made checking repeated values easier. Since I had a time limit, I wanted to use 
+something I was familiar with instead of making the code more complicated.
